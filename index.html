@@ -87,8 +87,7 @@ const employee=employees[id];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 if(!employee){document.getElementById("rows").innerHTML='<div class="row"><span>Employee not found. Please scan a valid ID card.</span></div>'}
 else{
-const items=[["Name",employee.name],["Age",employee.age],["Address",employee.address],["Contact No",employee.phone,"tel:"+String(employee.phone).replace(/[^+\d]/g,"")],["Blood Group",employee.bloodGroup],["DOB",employee.dob]];
-document.getElementById("rows").innerHTML=items.filter(i=>i[1]!=="").map(i=>`<div class="row"><small>${i[0]}</small>${i[2]?`<a href="${esc(i[2])}">${esc(i[1])}</a>`:`<span>${esc(i[1])}</span>`}</div>`).join("");
+const items=[["Name",employee.name],["Age",employee.age],["Address",employee.address],["Contact No",employee.phone,"tel:"+String(employee.phone).replace(/[^+\d]/g,"")],["Email ID",employee.email,"mailto:"+employee.email],["Blood Group",employee.bloodGroup],["DOB",employee.dob],["Joining Date",employee.joiningDate]];document.getElementById("rows").innerHTML=items.filter(i=>i[1]!=="").map(i=>`<div class="row"><small>${i[0]}</small>${i[2]?`<a href="${esc(i[2])}">${esc(i[1])}</a>`:`<span>${esc(i[1])}</span>`}</div>`).join("");
 }
 </script>
 </body>
